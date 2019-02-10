@@ -7,6 +7,10 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const providerPlugin = new webpack.ProvidePlugin({
+  Vue: 'vue'
+})
+
 // const providerPlugin = new webpack.ProvidePlugin({
 //   $: 'jquery',
 //   jQuery: 'jquery'
@@ -15,7 +19,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const cleanWebPackPlugin = new CleanWebpackPlugin([path.resolve(__dirname, 'dist')])
 
 const entryConfig = {
-  vendor: ['ramda'],
+  vendor: ['ramda', 'vue'],
   main: [
     path.resolve(__dirname, 'app/js/main.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
@@ -136,11 +140,14 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".tsx", ".ts", ".js"]
+    extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      'vue': 'vue/dist/vue.js'
+    }
   },
 
   plugins: [
-    // providerPlugin,
+    providerPlugin,
     cleanWebPackPlugin,
 
     new MiniCssExtractPlugin({

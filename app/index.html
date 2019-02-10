@@ -23,7 +23,19 @@
         </div>
       </section>
 
+      <section>
+        <div id="app">
+          <input type="text" v-model="userInput">
+          <button v-on:click="addTodo">Add Todo</button>
 
+          <ul>
+            <li
+              v-for="todo in todos"
+              v-on:click="removeTodo(todo)">{{ todo.value }}
+            </li>
+          </ul>
+        </div>
+      </section>
 
       <footer class="l-footer footer">
         <div class="footerPanel footerPanel__links">

@@ -38,5 +38,7 @@
     "webpack-md5-hash": "0.0.6",
     "webpack-node-externals": "1.7.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vue": "^2.6.4"
+  }
 }
