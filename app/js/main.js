@@ -1,9 +1,5 @@
-// eslint-disable-line no-unused-vars
-
-import $ from 'jquery';
-
-$(function () {
-
+const main = () => {
   console.log("landing...");
+}
 
-});
+main();
