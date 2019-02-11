@@ -5,8 +5,9 @@
           <router-link to="/blog">Blog</router-link>
           <router-link to="/account">Account</router-link>
       </div>
-      <router-view></router-view> -->
-      <!--<app-user></app-user>-->
+      -->
+      <!-- <router-view></router-view> -->
+      <!-- <app-user></app-user> -->
     <p>This is a test!</p>
   </div>
 </template>

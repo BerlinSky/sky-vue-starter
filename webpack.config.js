@@ -57,7 +57,10 @@ const sassRules = {
   test: /\.scss$/,
   exclude: /node_modules/,
   use: [
+    "vue-style-loader",
     MiniCssExtractPlugin.loader,
+    // {
+    // },
     {
       loader: "css-loader",
       options: {
@@ -155,7 +158,7 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
     // alias: {
-    //   'vue': 'vue/dist/vue.js'
+    //   'vue$': 'vue/dist/vue.esm.js'
     // }
   },
 
@@ -175,6 +178,7 @@ module.exports = {
       // hash: true,
       template: './app/index.html',
       filename: 'index.html',
+      inject: true
     }),
 
     new WebpackMd5Hash()
