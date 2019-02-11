@@ -1,46 +1,27 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
 import App from './App.vue';
-
 import User from './components/User.vue';
+import Blog from './components/Blog.vue';
+import Account from './components/Account.vue';
+
+Vue.use(VueRouter);
+
+const routes = [
+  {path: '/blog', component: Blog},
+  {path: '/account', component: Account},
+  {path: '/', component: User},
+];
+
+const router = new VueRouter({
+  routes: routes,
+  mode: 'history'
+});
 
 Vue.component('app-user', User);
 
 new Vue({
   el: '#app',
+  router: router,
   render: h => h(App)
 })
-// const main = () => {
-//   new Vue({
-//     el: '#app',
-//     data: {
-//       todos: [],
-//       userInput: ''
-//     },
-//     methods: {
-//       addTodo: function() {
-//         if (this.userInput.trim() == '') {
-//           return;
-//         }
-//         var newTodo = {
-//           id: Math.floor(Math.random() * Math.floor(3500)),
-//           value: this.userInput
-//         };
-//         this.todos.push(newTodo);
-//         console.log(this.todos);
-//       },
-//       removeTodo(todo) {
-//         var id = todo.id;
-//         for (var i = 0; i < this.todos.length; i++) {
-//           if (this.todos[i].id == id) {
-//             this.todos.splice(i, 1);
-//             break;
-//           }
-//         }
-//       }
-//     }
-//   });
-// }
-
-// (function(){
-//   main();
-// })()

@@ -42,6 +42,7 @@
     "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
-    "vue": "^2.6.4"
+    "vue": "^2.6.4",
+    "vue-router": "^3.0.2"
   }
 }
