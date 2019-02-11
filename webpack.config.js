@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 // const nodeExternals = require('webpack-node-externals');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -7,9 +7,16 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const providerPlugin = new webpack.ProvidePlugin({
-  Vue: 'vue'
-})
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+// const VueLoaderPlugin = require('vue-loader/lib/plugin');
+// environment.plugins.append(
+//   'VueLoaderPlugin',
+//   new VueLoaderPlugin()
+// );
+// const providerPlugin = new webpack.ProvidePlugin({
+//   Vue: 'vue'
+// })
 
 // const providerPlugin = new webpack.ProvidePlugin({
 //   $: 'jquery',
@@ -78,6 +85,11 @@ const htmlRules = {
   use: ['html-loader']
 }
 
+const vueRules = {
+  test: /\.vue$/,
+  loader: 'vue-loader',
+}
+
 const fontRules = {
   test: /\.(ttf|otf|eot|svg|woff2|woff(2)?)(\?[a-z0-9]+)?$/,
   exclude: '/app/images/',
@@ -131,6 +143,7 @@ module.exports = {
 
   module: {
     rules: [
+      vueRules,
       jsRules,
       sassRules,
       htmlRules,
@@ -141,13 +154,15 @@ module.exports = {
 
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-    alias: {
-      'vue': 'vue/dist/vue.js'
-    }
+    // alias: {
+    //   'vue': 'vue/dist/vue.js'
+    // }
   },
 
   plugins: [
-    providerPlugin,
+    // providerPlugin,
+    new VueLoaderPlugin(),
+
     cleanWebPackPlugin,
 
     new MiniCssExtractPlugin({
