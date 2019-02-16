@@ -1,10 +1,14 @@
 import Vue from 'vue';
+
+import BootstrapVue from 'bootstrap-vue';
 import VueRouter from 'vue-router';
+
 import App from './App.vue';
 import User from './components/User.vue';
 import Blog from './components/Blog.vue';
 import Account from './components/Account.vue';
 
+Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 
 const routes = [
@@ -23,5 +27,7 @@ Vue.component('app-user', User);
 new Vue({
   el: '#app',
   router: router,
-  render: h => h(App)
+  render: h => h(App),
+  // components: { App },
+  // template: '<App/>'
 })

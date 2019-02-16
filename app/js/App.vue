@@ -1,10 +1,17 @@
 <template>
   <div id="app">
-    <div>
-      <router-link to="/">Home</router-link>
-      <router-link to="/blog">Blog</router-link>
-      <router-link to="/account">Account</router-link>
-    </div>
+    <b-navbar
+      toggleable="md"
+      type="dark"
+      variant="info">
+      <b-navbar-brand>H</b-navbar-brand>
+      <b-navbar-nav>
+        <b-nav-item><router-link to="/">Home</router-link></b-nav-item>
+        <b-nav-item><router-link to="/blog">Blog</router-link></b-nav-item>
+        <b-nav-item><router-link to="/account">Account</router-link></b-nav-item>
+      </b-navbar-nav>
+    </b-navbar>
+
     <router-view></router-view>
     <!-- <app-user></app-user> -->
     <p>This is a test!</p>
